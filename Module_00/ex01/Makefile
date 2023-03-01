@@ -1,6 +1,7 @@
 NAME = agenda
-SRC = main.cpp contact.cpp
-OBJ = $(SRC: .cpp=.o)
+FILES = main contact book
+SRC = $(addsuffix .cpp, $(FILES))
+OBJ = $(addsuffix .o, $(FILES))
 CC = clang++
 
 all: $(NAME)
