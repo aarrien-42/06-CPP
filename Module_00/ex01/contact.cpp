@@ -1,21 +1,5 @@
 #include "agenda.hpp"
 
-bool isNumber(std::string s) {
-	for (int i = 0; i < s.length(); i++)
-		if (std::isdigit(s[i]) == 0 && s[i] != ' ')
-			return false;
-	return true;
-}
-
-bool isEmpty(std::string s) {
-	if (s.empty())
-		return true;
-	for (int i = 0; i < s.length(); i++)
-		if (std::isspace(s[i]) == 0)
-			return false;
-	return true;
-}
-
 void Contact::create(int i) {
 	do {
 		std::cout << "First name? ";
@@ -42,6 +26,7 @@ void Contact::create(int i) {
 		getline(std::cin, darkestSecret);
 	} while (isEmpty(darkestSecret));
 	index = i;
+	std::cout << "\nNuevo contacto creado exitosamente\n";
 }
 
 std::string resizeString(std::string s, int len) {
@@ -56,6 +41,16 @@ void Contact::getInfo() {
 		std::cout << std::setw(10) << (lastName.length() < 10 ? lastName : resizeString(lastName, 9)+'.') << "|";
 		std::cout << std::setw(10) << (nickname.length() < 10 ? nickname : resizeString(nickname, 9)+'.') << "\n";
 	}
+}
+
+void Contact::printInfo() {
+	std::cout << "\nInformación de contacto:\n";
+	std::cout << " firstName: " + firstName << std::endl;
+	std::cout << " lastName: " + lastName << std::endl;
+	std::cout << " nickname: " + nickname << std::endl;
+	std::cout << " phoneNumber: " + phoneNumber << std::endl;
+	std::cout << " darkestSecret: " + darkestSecret << std::endl;
+	std::cout << "\n";
 }
 
 bool Contact::emptyContact() {

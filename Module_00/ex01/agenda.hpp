@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <cstring>
 
 class Contact {
 	private:
@@ -9,6 +10,7 @@ class Contact {
 	public:
 		void create(int i);
 		void getInfo();
+		void printInfo();
 		bool emptyContact();
 };
 
@@ -16,9 +18,10 @@ class PhoneBook {
 	private:
 		Contact agenda[8];
 	public:
-		PhoneBook();
 		void printBook();
 		void addContact();
+		bool emptyBook();
+		bool printContact(int index);
 };
 
 bool isNumber(std::string s);
