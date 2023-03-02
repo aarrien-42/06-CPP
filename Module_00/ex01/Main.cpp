@@ -1,7 +1,7 @@
-#include "agenda.hpp"
+#include "Agenda.hpp"
 
 bool isNumber(std::string s) {
-	for (int i = 0; i < s.length(); i++)
+	for (int i = 0; i < (int)s.length(); i++)
 		if (std::isdigit(s[i]) == 0 && s[i] != ' ')
 			return false;
 	return true;
@@ -10,7 +10,7 @@ bool isNumber(std::string s) {
 bool isEmpty(std::string s) {
 	if (s.empty())
 		return true;
-	for (int i = 0; i < s.length(); i++)
+	for (int i = 0; i < (int)s.length(); i++)
 		if (std::isspace(s[i]) == 0)
 			return false;
 	return true;
@@ -54,7 +54,7 @@ int main() {
 				if (book.printContact(stoi(index)) == false)
 					std::cout << "Contacto no encontrado\n";
 			} else
-				std::cout << "Eso no es un número\n";
+				std::cout << "Eso no es un número válido\n";
 		}
 		else if (isSame(comando, "EXIT"))
 			break;

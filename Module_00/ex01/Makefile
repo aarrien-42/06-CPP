@@ -1,8 +1,8 @@
 NAME = agenda
-FILES = main contact book
+FILES = Main Contact Book
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
-CC = clang++
+CC = c++ -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 

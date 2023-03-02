@@ -1,7 +1,7 @@
 NAME = megaphone
-SRC = megaphone.cpp
+SRC = Megaphone.cpp
 OBJ = *.o
-CC = g++
+CC = c++ -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 

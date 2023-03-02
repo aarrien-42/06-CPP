@@ -1,4 +1,4 @@
-#include "agenda.hpp"
+#include "Agenda.hpp"
 
 void Contact::create(int i) {
 	do {

@@ -2,7 +2,7 @@ NAME = account
 FILES = Account tests
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
-CC = clang++ -Wall -Werror -Wextra
+CC = c++ -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
