@@ -2,7 +2,6 @@
 #include <iostream>
 #include <ctime>
 #include <iomanip>
-#include <cstdio>
 #include <cstring>
 
 int	Account::_nbAccounts = 0;
