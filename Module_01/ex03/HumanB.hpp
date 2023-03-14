@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:54:06 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/03/02 18:54:07 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:55:17 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "Weapon.hpp"
 
+// si weapon fuese una referencia nos exigiría inicializarlo desde el constructor
 class HumanB {
 	private:
 		std::string name;
