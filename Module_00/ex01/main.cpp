@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:53:21 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/03/02 18:53:22 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/09 10:58:19 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ bool isEmpty(std::string s) {
 }
 
 bool isSame(std::string s1, std::string s2) {
-	for (int i = 0; s1[i] && s2[i]; i++)
+	int	i;
+	for (i = 0; s1[i] && s2[i]; i++)
 		if (s1[i] != s2[i])
 			return false;
+	if (i == 0)
+		return false;
 	return true;
 }
 
@@ -62,7 +65,9 @@ int main() {
 			book.printBook();
 			std::cout << "Introduce el indice de la entrada a mostrar: ";
 			getline(std::cin, index);
-			if (isNumber(index)) {
+			if (isEmpty(index))
+				std::cout << "Indice no válido\n";
+			else if (isNumber(index)) {
 				if (book.printContact(stoi(index)) == false)
 					std::cout << "Contacto no encontrado\n";
 			} else

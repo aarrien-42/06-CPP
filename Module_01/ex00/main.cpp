@@ -6,13 +6,15 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:53:31 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/03/02 18:53:32 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/09 10:03:52 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int main() {
+	Zombie Z("Poo");
+	Z.announce();
 	randomChump("Foo");
 	return 0;
 }

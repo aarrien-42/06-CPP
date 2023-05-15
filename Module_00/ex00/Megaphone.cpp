@@ -6,14 +6,14 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:52:32 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/03/02 18:52:33 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/11 09:59:54 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 std::string toMayus(std::string s){
-	for (int i = 0; i < s.length(); i++)
+	for (int i = 0; i < (int)s.length(); i++)
 		s[i] = toupper(s[i]);
 	return s;
 }

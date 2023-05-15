@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:53:48 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/03/02 18:53:49 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/09 10:06:48 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void Zombie::setName( std::string n ) {
 }
 
 Zombie::~Zombie() {
-	std::cout << name <<" destroyed\n";
+	std::cout << name << " destroyed\n";
 }

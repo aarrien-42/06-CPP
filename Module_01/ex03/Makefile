@@ -2,7 +2,7 @@ NAME = human
 FILES = main Weapon HumanA HumanB
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
-CC = c++ -Wall -Werror -Wextra -std=c++98 -g3
+CC = c++ -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
@@ -14,7 +14,7 @@ $(NAME): $(OBJ)
 	@$(CC) -c $< -o $@
 
 clean:
-	@$(RM) -rf *.o *.dSYM
+	@$(RM) $(OBJ)
 	@echo "Objects cleaned!"
 
 fclean: clean

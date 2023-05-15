@@ -14,7 +14,7 @@ $(NAME): $(OBJ)
 	@$(CC) -c $< -o $@
 
 clean:
-	@$(RM) -rf *.o *.dSYM
+	@$(RM) $(OBJ)
 	@echo "Objects cleaned!"
 
 fclean: clean

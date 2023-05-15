@@ -6,12 +6,12 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:54:06 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/03/14 15:55:17 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:28:57 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_H
-#define HUMANB_H
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include "Weapon.hpp"
 

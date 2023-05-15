@@ -1,6 +1,7 @@
 NAME = megaphone
-SRC = Megaphone.cpp
-OBJ = *.o
+FILES = Megaphone
+SRC = $(addsuffix .cpp, $(FILES))
+OBJ = $(addsuffix .o, $(FILES))
 CC = c++ -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
@@ -8,12 +9,12 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.c
+%.o: %.cpp
 	@echo "Compiling: $<"
 	@$(CC) -c $< -o $@
 
 clean:
-	@$(RM) -rf $(OBJ) *.dSYM
+	@$(RM) $(OBJ)
 	@echo "Objects cleaned!"
 
 fclean: clean

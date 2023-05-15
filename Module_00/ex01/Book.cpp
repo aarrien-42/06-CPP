@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:53:12 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/03/02 18:53:13 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/09 09:38:22 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void PhoneBook::printBook() {
 void PhoneBook::addContact() {
 	int i = 0;
 
-	while (i < 8) {
+	while (i < 7) {
 		if (agenda[i].emptyContact())
 			break;
 		i++;
