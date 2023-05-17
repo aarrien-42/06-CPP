@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:32:41 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/09 12:17:03 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:39:59 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ void Harl::selectOut( int index ) {
 			break;
 		case 3:
 			complain("ERROR");
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]";
 			break;
 	}
 }
