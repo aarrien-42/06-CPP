@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 11:15:51 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/16 15:40:54 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:41:22 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /*-CONSTRUCTOR(ES)-*/
 
-ScavTrap::ScavTrap() : ClapTrap() {
+ScavTrap::ScavTrap() : ClapTrap(), _hp(100), _ep(50), _ad(20) {
 	std::cout << BLUE << "ScavTrap: Default constructor called" << std::endl;
 	setAttributes(100, 50, 20);
 }
 
-ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
+ScavTrap::ScavTrap( std::string name ) : ClapTrap(name), _hp(100), _ep(50), _ad(20) {
 	std::cout << BLUE << "ScavTrap: String constructor called" << std::endl;
 	setAttributes(100, 50, 20);
 }
@@ -49,8 +49,8 @@ ScavTrap& ScavTrap::operator=( const ScavTrap& obj ) {
 
 void ScavTrap::attack(const std::string& target) {
 	if(!isDead() && !noEnergy()) {
-		std::cout << RED << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_ad << " points of damage!" << std::endl;
-		this->_ep--;
+		std::cout << RED << "ScavTrap " << this->_name << " attacks " << target << ", causing " << ClapTrap::_ad << " points of damage!" << std::endl;
+		ClapTrap::_ep--;
 	}
 }
 

@@ -6,23 +6,31 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 08:44:41 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/16 12:53:52 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:46:16 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
+	DiamondTrap P("Pedro");
+	DiamondTrap A;
+	A.whoAmI();
+	ScavTrap S("Susan");
 	FragTrap F("Fer");
+	P.attack("Fer");
+	F.takeDamage(30);
+	P.showAttributes();
+	P.whoAmI();
+	P.takeDamage(20);
+	P.highFivesGuys();
+	P.guardGate();
+	P.showAttributes();
+	S.showAttributes();
 	F.showAttributes();
-	F.attack("Air");
+	F.attack("Susan");
+	S.takeDamage(30);
+	S.showAttributes();
 	F.showAttributes();
-	F.highFivesGuys();
-	FragTrap F2("Fer2");
-	F2 = F;
-	F.takeDamage(20);
-	F.showAttributes();
-	F2.showAttributes();
 	return 0;
 }

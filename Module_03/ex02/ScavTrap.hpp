@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 11:15:54 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/11 12:41:10 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:40:35 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class ScavTrap : public ClapTrap {
 		ScavTrap( std::string name );
 		ScavTrap( const ScavTrap& obj );
 		~ScavTrap();
+
+		ScavTrap& operator=( const ScavTrap& obj );
 
 		void attack(const std::string& target);
 		void guardGate() const;

@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:10:42 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/16 15:35:27 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:41:16 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /*-CONSTRUCTOR(ES)-*/
 
-FragTrap::FragTrap() : ClapTrap() {
+FragTrap::FragTrap() : ClapTrap(), _hp(100), _ep(100), _ad(30) {
 	std::cout << BLUE << "FragTrap: Default constructor called" << std::endl;
 	setAttributes(100, 100, 30);
 }
 
-FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
+FragTrap::FragTrap( std::string name ) : ClapTrap(name), _hp(100), _ep(100), _ad(30) {
 	std::cout << BLUE << "FragTrap: String constructor called" << std::endl;
 	setAttributes(100, 100, 30);
 }
@@ -49,8 +49,8 @@ FragTrap& FragTrap::operator=( const FragTrap& obj ) {
 
 void FragTrap::attack(const std::string& target) {
 	if(!isDead() && !noEnergy()) {
-		std::cout << RED << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_ad << " points of damage!" << std::endl;
-		this->_ep--;
+		std::cout << RED << "FragTrap " << this->_name << " attacks " << target << ", causing " << ClapTrap::_ad << " points of damage!" << std::endl;
+		ClapTrap::_ep--;
 	}
 }
 

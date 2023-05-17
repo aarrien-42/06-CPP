@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 11:15:51 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/11 12:55:11 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:40:17 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ ScavTrap::ScavTrap( const ScavTrap& obj ) : ClapTrap() {
 
 ScavTrap::~ScavTrap() {
 	std::cout << BLUE << "ScavTrap: Destructor called" << std::endl;
+}
+
+/*-SOBRECARGA(S) DE OPERADOR(ES)-*/
+
+ScavTrap& ScavTrap::operator=( const ScavTrap& obj ) {
+	this->_name = obj._name;
+	this->_hp = obj._hp;
+	this->_ep = obj._ep;
+	this->_ad = obj._ad;
+	return *this;
 }
 
 /*-FUNCION(ES) MIEMBRO-*/
