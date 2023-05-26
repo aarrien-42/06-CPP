@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 15:20:54 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/26 13:09:48 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:55:59 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,9 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
-	if (idx < 0 || idx >= 4)
+	if (&target == nullptr)
+		std::cout << YELLOW << "Not a valid target" << std::endl;
+	else if (idx < 0 || idx >= 4)
 		std::cout << YELLOW << "Index out of range" << std::endl;
 	else if (this->_inventory[idx] == NULL)
 		std::cout << YELLOW << "There's not a potion in that slot" << std::endl;
