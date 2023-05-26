@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 16:58:03 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/18 14:53:10 by aarrien-         ###   ########.fr       */
+/*   Created: 2023/05/25 11:27:44 by aarrien-          #+#    #+#             */
+/*   Updated: 2023/05/25 16:26:21 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Ice.hpp"
 
 /*-CONSTRUCTOR(ES)-*/
 
-Animal::Animal() {
-	std::cout << "Animal: Default constructor called" << std::endl;
+Ice::Ice() : AMateria("ice"){
+	std::cout << BLUE << "Ice: Default constructor called" << std::endl;
 }
 
-Animal::Animal( const Animal& obj ) {
-	std::cout << "Animal: Copy constructor called" << std::endl;
+Ice::Ice( const Ice& obj ) {
+	std::cout << BLUE << "Ice: Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 /*-DESTRUCTOR-*/
 
-Animal::~Animal() {
-	std::cout << "Animal: Destructor called" << std::endl;
+Ice::~Ice() {
+	std::cout << BLUE << "Ice: Destructor called" << std::endl;
 }
 
 /*-SOBRECARGA(S) DE OPERADOR(ES)-*/
 
-Animal& Animal::operator=( const Animal& obj ) {
-	this->type = obj.type;
+Ice& Ice::operator=( const Ice& obj ) {
+	this->type = obj.getType();
 	return *this;
 }
 
 /*-FUNCION(ES) MIEMBRO-*/
 
-const std::string Animal::getType() const {
-	return this->type;
+AMateria* Ice::clone() const {
+	return new Ice(*this);
+}
+
+void Ice::use( ICharacter& target ) {
+	std::cout << RED << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
