@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:51:38 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/26 14:05:17 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:44:45 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main() {
 	ICharacter* b = NULL;
 	me->use(0, *bob);
 	me->use(0, *b);
-	me->use(1, *bob);
+	me->use(2, *bob);
 	delete bob;
 	delete me;
 	delete src;
