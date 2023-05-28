@@ -13,7 +13,43 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-	Bureaucrat B("Luis", 42);
-	std::cout << B;
+	try {
+		std::cout << BOLD << "\nTEST 1:\n";
+		Bureaucrat B("Pedro", 0);
+	}
+	catch (const std::exception& e) {
+		std::cout << YELLOW << "Caught exception: " << e.what() << "\n";
+	}
+	try {
+		std::cout << BOLD << "\nTEST 2:\n";
+		Bureaucrat B("Pedro", 151);
+	}
+	catch (const std::exception& e) {
+		std::cout << YELLOW << "Caught exception: " << e.what() << "\n";
+	}
+	try {
+		std::cout << BOLD << "\nTEST 3:\n";
+		Bureaucrat B("Luis", 42);
+		for (int i = 0; i < 50; i++) {
+			if (i % 10 == 0)
+				std::cout << B;
+			B.incrementGrade();
+		}
+	}
+	catch (const std::exception& e) {
+		std::cout << YELLOW << "Caught exception: " << e.what() << "\n";
+	}
+	try {
+		std::cout << BOLD << "\nTEST 4:\n";
+		Bureaucrat B("Luis", 135);
+		for (int i = 0; i < 50; i++) {
+			if (i % 10 == 0)
+				std::cout << B;
+			B.decrementGrade();
+		}
+	}
+	catch (const std::exception& e) {
+		std::cout << YELLOW << "Caught exception: " << e.what() << "\n";
+	}
 	return 0;
 }

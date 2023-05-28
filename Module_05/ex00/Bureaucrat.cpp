@@ -15,27 +15,27 @@
 /*-CONSTRUCTOR(ES)-*/
 
 Bureaucrat::Bureaucrat() : _name("NoName"), _grade(150){
-	std::cout << "Bureaucrat: Default constructor called\n";
+	std::cout << BLUE << "Bureaucrat: Default constructor called\n";
 }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
-	if (grade > 150 || grade <= 0)
-		std::cout << YELLOW << "Grade out of range\n";
-	else {
-		std::cout << "Bureaucrat: Parameter constructor called\n";
-		this->_grade = grade;
-	}
+	if (grade > 150)
+		throw GradeTooHighException();
+	else if (grade <= 0)
+		throw GradeTooLowException();
+	std::cout << BLUE << "Bureaucrat: Parameter constructor called\n";
+	this->_grade = grade;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat& obj ) {
-	std::cout << "Bureaucrat: Copy constructor called\n";
+	std::cout << BLUE << "Bureaucrat: Copy constructor called\n";
 	*this = obj;
 }
 
 /*-DESTRUCTOR-*/
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat: Destructor called\n";
+	std::cout << BLUE << "Bureaucrat: Destructor called\n";
 }
 
 /*-SOBRECARGA(S) DE OPERADOR(ES)-*/
@@ -46,7 +46,7 @@ Bureaucrat& Bureaucrat::operator=( const Bureaucrat& obj ) {
 }
 
 std::ostream& operator<<( std::ostream& o, const Bureaucrat& b ) {
-	o << b.getName() <<", bureaucrat grade " << b.getGrade() << "\n";
+	o << PURPLE << b.getName() <<", bureaucrat grade " << b.getGrade() << "\n";
 	return o;
 }
 
@@ -61,11 +61,13 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-	if (this->_grade > 1)
-		this->_grade--;
+	if (this->_grade <= 1)
+		throw GradeTooLowException();
+	this->_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-	if (this->_grade < 150)
-		this->_grade++;
+	if (this->_grade >= 150)
+		throw GradeTooHighException();
+	this->_grade++;
 }
