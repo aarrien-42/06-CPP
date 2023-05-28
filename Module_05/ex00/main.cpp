@@ -13,7 +13,7 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-	Bureaucrat B;
-	std::cout << B.getName() << " is a " << B.getGrade() << " bureaucrat\n";
+	Bureaucrat B("Luis", 42);
+	std::cout << B;
 	return 0;
 }

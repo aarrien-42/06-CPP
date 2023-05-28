@@ -45,6 +45,11 @@ Bureaucrat& Bureaucrat::operator=( const Bureaucrat& obj ) {
 	return *this;
 }
 
+std::ostream& operator<<( std::ostream& o, const Bureaucrat& b ) {
+	o << b.getName() <<", bureaucrat grade " << b.getGrade() << "\n";
+	return o;
+}
+
 /*-FUNCION(ES) MIEMBRO-*/
 
 const std::string Bureaucrat::getName() const {
