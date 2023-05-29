@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:08:07 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/29 15:25:13 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/29 15:33:56 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 		throw FormNotSignedException();
 	if (executor.getGrade() > this->getExecGrade())
 		throw GradeTooLowException();
-	//Informs that <target> has been pardoned by Zaphod Beeblebrox
+	std::cout << RED << this->_target << " has been pardoned by Zaphod Beeblebrox\n";
 }

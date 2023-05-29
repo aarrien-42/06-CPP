@@ -6,10 +6,12 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:40:23 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/29 15:25:36 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/29 16:07:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fstream>
+#include <string>
 #include "PresidentialPardonForm.hpp"
 
 /*-CONSTRUCTOR(ES)-*/
@@ -48,5 +50,15 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 		throw FormNotSignedException();
 	if (executor.getGrade() > this->getExecGrade())
 		throw GradeTooLowException();
-	//Create a file <target>_shrubbery in the working directory, and writes ASCII trees inside it.
+	std::ofstream file((_target + "_shrubbery").c_str());
+	file << "      %%%,%%%%%%% \n";
+	file << "       ,'%% \\-*%%%%%%% \n";
+	file << " ;%%%%%*%   _%%%%' \n";
+	file << "  ,%%%       \\(_.*%%%%. \n";
+	file << "  % *%%, ,%%%%*(    ' \n";
+	file << "%^     ,*%%% )\\|,%%*%,_ \n";
+	file << "     *%    \\/ #).-'*%%* \n";
+	file << "         _.) ,/ *%, \n";
+	file << " _________/)#(_____________ \n";
+	file.close();
 }
