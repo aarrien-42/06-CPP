@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:08:07 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/29 15:09:54 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/29 15:25:13 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreation
 std::string ShrubberyCreationForm::getTarget() const { return _target; };
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-	(void)executor;
+	if (!this->getSigned())
+		throw FormNotSignedException();
+	if (executor.getGrade() > this->getExecGrade())
+		throw GradeTooLowException();
 	//Informs that <target> has been pardoned by Zaphod Beeblebrox
 }

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:06:09 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/29 15:07:14 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/29 15:25:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ RobotomyRequestForm& RobotomyRequestForm::operator=( const RobotomyRequestForm& 
 std::string RobotomyRequestForm::getTarget() const { return _target; };
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-	(void)executor;
+	if (!this->getSigned())
+		throw FormNotSignedException();
+	if (executor.getGrade() > this->getExecGrade())
+		throw GradeTooLowException();
 	//Makes some drilling noises. Then, informs that <target> has been robotomized successfully 50% of the time. Otherwise, informs that the robotomy failed.
 }

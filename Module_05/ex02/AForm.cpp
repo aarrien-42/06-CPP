@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:44:24 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/29 14:34:28 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/29 15:15:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void AForm::execute(Bureaucrat const & executor) const {
 }
 
 void AForm::showRequirements() const {
-	std::cout << CYAN << this->_name << " Aform requirements:\n";
+	std::cout << CYAN << this->_name << " form requirements:\n";
 	std::cout << "  To be signed: " << this->_signGrade << "\n";
 	std::cout << "  To be executed: " << this->_execGrade << "\n";
 }

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:40:23 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/29 15:02:33 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/29 15:25:36 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ PresidentialPardonForm& PresidentialPardonForm::operator=( const PresidentialPar
 std::string PresidentialPardonForm::getTarget() const { return _target; };
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
-	(void)executor;
+	if (!this->getSigned())
+		throw FormNotSignedException();
+	if (executor.getGrade() > this->getExecGrade())
+		throw GradeTooLowException();
 	//Create a file <target>_shrubbery in the working directory, and writes ASCII trees inside it.
 }

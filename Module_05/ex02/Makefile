@@ -1,5 +1,5 @@
 NAME = moreforms
-FILES = main Bureaucrat AForm PresidentialPardonForm RobotomyRequestForm
+FILES = main Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 CC = c++ -Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address
