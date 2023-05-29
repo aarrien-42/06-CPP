@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:37:21 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/28 18:48:04 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/29 14:14:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
-#include "Exceptions.hpp"
 
 class Form {
 	private:
