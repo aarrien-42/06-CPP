@@ -6,10 +6,12 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:08:07 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/31 09:15:51 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:36:58 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fstream>
+#include <string>
 #include "ShrubberyCreationForm.hpp"
 
 /*-CONSTRUCTOR(ES)-*/
@@ -48,5 +50,15 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 		throw FormNotSignedException();
 	if (executor.getGrade() > this->getExecGrade())
 		throw GradeTooLowException();
-	std::cout << RED << this->_target << " has been pardoned by Zaphod Beeblebrox\n";
+	std::ofstream file((_target + "_shrubbery").c_str());
+	file << "      %%%,%%%%%%% \n";
+	file << "       ,'%% \\-*%%%%%%% \n";
+	file << " ;%%%%%*%   _%%%%' \n";
+	file << "  ,%%%       \\(_.*%%%%. \n";
+	file << "  % *%%, ,%%%%*(    ' \n";
+	file << "%^     ,*%%% )\\|,%%*%,_ \n";
+	file << "     *%    \\/ #).-'*%%* \n";
+	file << "         _.) ,/ *%, \n";
+	file << " _________/)#(_____________ \n";
+	file.close();
 }

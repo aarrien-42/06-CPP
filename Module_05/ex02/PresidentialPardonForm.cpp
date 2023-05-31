@@ -6,12 +6,10 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:40:23 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/31 09:16:12 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:36:50 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fstream>
-#include <string>
 #include "PresidentialPardonForm.hpp"
 
 /*-CONSTRUCTOR(ES)-*/
@@ -50,15 +48,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 		throw FormNotSignedException();
 	if (executor.getGrade() > this->getExecGrade())
 		throw GradeTooLowException();
-	std::ofstream file((_target + "_shrubbery").c_str());
-	file << "      %%%,%%%%%%% \n";
-	file << "       ,'%% \\-*%%%%%%% \n";
-	file << " ;%%%%%*%   _%%%%' \n";
-	file << "  ,%%%       \\(_.*%%%%. \n";
-	file << "  % *%%, ,%%%%*(    ' \n";
-	file << "%^     ,*%%% )\\|,%%*%,_ \n";
-	file << "     *%    \\/ #).-'*%%* \n";
-	file << "         _.) ,/ *%, \n";
-	file << " _________/)#(_____________ \n";
-	file.close();
+	std::cout << RED << this->_target << " has been pardoned by Zaphod Beeblebrox\n";
 }

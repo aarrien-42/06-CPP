@@ -6,11 +6,12 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:55:19 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/26 17:51:46 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:34:44 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 /*-CONSTRUCTOR(ES)-*/
 
@@ -70,4 +71,9 @@ void Bureaucrat::decrementGrade() {
 	if (this->_grade >= 150)
 		throw GradeTooHighException();
 	this->_grade++;
+}
+
+void Bureaucrat::executeForm(AForm const & form) {
+	form.execute(*this);
+	std::cout << GREEN << this->_name << " executed " << form.getName() << "\n";
 }
