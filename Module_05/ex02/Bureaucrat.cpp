@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:55:19 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/31 09:34:44 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:50:52 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Bureaucrat::Bureaucrat() : _name("NoName"), _grade(150){
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
 	if (grade > 150)
-		throw GradeTooHighException();
-	else if (grade <= 0)
 		throw GradeTooLowException();
+	else if (grade <= 0)
+		throw GradeTooHighException();
 	std::cout << BLUE << "Bureaucrat: Parameter constructor called\n";
 	this->_grade = grade;
 }
@@ -71,6 +71,19 @@ void Bureaucrat::decrementGrade() {
 	if (this->_grade >= 150)
 		throw GradeTooHighException();
 	this->_grade++;
+}
+
+void Bureaucrat::signForm(AForm& form) {
+	if (!form.getSigned()) {
+		if (this->_grade > form.getSignGrade()) {
+			std::cout << PURPLE << this->_name << " couldn’t sign " << form.getName() << " because requires a higher grade\n";
+			throw GradeTooLowException();
+		}
+		std::cout << PURPLE << this->_name << " signed " << form.getName() << "\n";
+		form.beSigned(*this);
+	} else {
+		std::cout << YELLOW << "This form is already signed\n";
+	}
 }
 
 void Bureaucrat::executeForm(AForm const & form) {

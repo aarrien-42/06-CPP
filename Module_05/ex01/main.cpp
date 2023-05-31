@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:53:36 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/28 18:58:07 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/31 12:58:23 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 int main() {
 	try {
@@ -46,6 +46,16 @@ int main() {
 		std::cout << F;
 		Bureaucrat B1("Pepe", 100);
 		F.beSigned(B1);
+	}
+	catch (const std::exception& e) {
+		std::cout << YELLOW << "Caught exception: " << e.what() << "\n";
+	}
+	try {
+		std::cout << BOLD << "\nTEST 5\n";
+		Form F("Test", 84, 42);
+		std::cout << F;
+		Bureaucrat B1("Pepe", 100);
+		B1.signForm(F);
 	}
 	catch (const std::exception& e) {
 		std::cout << YELLOW << "Caught exception: " << e.what() << "\n";

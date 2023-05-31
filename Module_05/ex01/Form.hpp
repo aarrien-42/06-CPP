@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:37:21 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/29 14:14:01 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/31 12:56:47 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
 	private:
@@ -35,14 +37,14 @@ class Form {
 		int getExecGrade() const;
 
 		void beSigned( const Bureaucrat& b );
-		
+
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char* what() const throw() {
 					return "Grade too high";
 				}
 		};
-		
+
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char* what() const throw() {

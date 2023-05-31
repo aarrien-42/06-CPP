@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:54:24 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/29 14:14:05 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/31 12:56:26 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 #define WHITE	"\033[0;0m"
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -40,6 +43,7 @@ class Bureaucrat {
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form& form);
 
 		class GradeTooHighException : public std::exception {
 			public:
@@ -47,7 +51,7 @@ class Bureaucrat {
 					return "Grade too high";
 				}
 		};
-		
+
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char* what() const throw() {
