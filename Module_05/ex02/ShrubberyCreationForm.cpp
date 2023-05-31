@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:08:07 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/29 15:33:56 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/31 09:15:51 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 /*-CONSTRUCTOR(ES)-*/
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 25, 5), _target("None") {
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), _target("None") {
 	std::cout << BLUE << "ShrubberyCreationForm: Default constructor called\n";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm("ShrubberyCreationForm", 25, 5), _target(target) {
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm("ShrubberyCreationForm", 145, 137), _target(target) {
 	std::cout << BLUE << "ShrubberyCreationForm: Parameter constructor called\n";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& obj ) : AForm("ShrubberyCreationForm", 25, 5), _target(obj.getTarget()) {
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& obj ) : AForm("ShrubberyCreationForm", 145, 137), _target(obj.getTarget()) {
 	std::cout << BLUE << "ShrubberyCreationForm: Copy constructor called\n";
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:40:23 by codespace         #+#    #+#             */
-/*   Updated: 2023/05/29 16:07:16 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/31 09:16:12 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 /*-CONSTRUCTOR(ES)-*/
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 145, 137), _target("None") {
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("None") {
 	std::cout << BLUE << "PresidentialPardonForm: Default constructor called\n";
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string target ) : AForm("PresidentialPardonForm", 145, 137), _target(target) {
+PresidentialPardonForm::PresidentialPardonForm( std::string target ) : AForm("PresidentialPardonForm", 25, 5), _target(target) {
 	std::cout << BLUE << "PresidentialPardonForm: Parameter constructor called\n";
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& obj ) : AForm("PresidentialPardonForm", 145, 137), _target(obj.getTarget()) {
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& obj ) : AForm("PresidentialPardonForm", 25, 5), _target(obj.getTarget()) {
 	std::cout << BLUE << "PresidentialPardonForm: Copy constructor called\n";
 }
 
