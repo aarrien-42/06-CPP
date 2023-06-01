@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:55:19 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/05/31 12:50:58 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:40:40 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ int Bureaucrat::getGrade() const {
 
 void Bureaucrat::incrementGrade() {
 	if (this->_grade <= 1)
-		throw GradeTooLowException();
+		throw GradeTooHighException();
 	this->_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
 	if (this->_grade >= 150)
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 	this->_grade++;
 }
 
