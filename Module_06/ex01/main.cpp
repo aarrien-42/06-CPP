@@ -6,23 +6,11 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:53:36 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/13 13:25:36 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:03:37 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
-
-struct Data {
-	int i;
-};
-
-uintptr_t serialize(Data *ptr) {
-	return reinterpret_cast<uintptr_t>(ptr);
-}
-
-Data *deserialize(uintptr_t raw) {
-	return reinterpret_cast<Data*>(raw);
-}
+#include "Serializer.hpp"
 
 int main() {
 	{
@@ -30,7 +18,7 @@ int main() {
 		Data *res;
 		D.i = -21;
 
-		res = deserialize(serialize(&D));
+		res = Serializer::deserialize(Serializer::serialize(&D));
 		std::cout << "\nTEST 1:\n";
 		std::cout << "  before: " << D.i << "\n";
 		std::cout << "  after:  " << res->i << "\n";
@@ -39,7 +27,7 @@ int main() {
 		uintptr_t i = 42;
 		uintptr_t o;
 
-		o = serialize(deserialize(i));
+		o = Serializer::serialize(Serializer::deserialize(i));
 		std::cout << "\nTEST 2:\n";
 		std::cout << "  before: " << i << "\n";
 		std::cout << "  after:  " << o << "\n";
