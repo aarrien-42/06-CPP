@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:53:36 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/01 13:45:16 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/13 10:58:30 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void printValues(char& c, int& i, float& f, double& d) {
 	std::cout << "double: " << d << ((d-i == 0.0f) ? ".0" : "") << "\n";
 }
 
-void printImposible(std::string& str) {
+void printImpossible(std::string& str) {
 	std::cout << "char: " << "impossible" << "\n";
 	std::cout << "int: " << "impossible" << "\n";
 	std::cout << "float: " << ((str[str.size() - 1] == 'f') ? str : (str + 'f')) << "\n";
@@ -85,7 +85,7 @@ bool castVariables(std::string str, char& c, int& i, float& f, double& d) {
 	int type = checkType(str);
 	switch (type) {
 		case 0:
-			printImposible(str);
+			printImpossible(str);
 			return true;
 		case 1:
 			c = str[0];
