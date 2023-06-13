@@ -2,7 +2,7 @@ NAME = whatever
 FILES = main
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
-CC = clang++ -Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address
+CC = c++ -Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address
 
 all: $(NAME)
 
