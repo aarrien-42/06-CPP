@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:53:36 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/13 10:50:20 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:45:16 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void printValues(char& c, int& i, float& f, double& d) {
 	std::cout << "double: " << d << ((d-i == 0.0f) ? ".0" : "") << "\n";
 }
 
-void printImpossible(std::string& str) {
+void printImposible(std::string& str) {
 	std::cout << "char: " << "impossible" << "\n";
 	std::cout << "int: " << "impossible" << "\n";
 	std::cout << "float: " << ((str[str.size() - 1] == 'f') ? str : (str + 'f')) << "\n";
@@ -83,39 +83,37 @@ void printImpossible(std::string& str) {
 
 bool castVariables(std::string str, char& c, int& i, float& f, double& d) {
 	int type = checkType(str);
-    void* ptr = nullptr;
-
 	switch (type) {
 		case 0:
-			printImpossible(str);
+			printImposible(str);
 			return true;
-		case 1: {
-			char tmp = str[0];
-			ptr = static_cast<void*>(&tmp);
+		case 1:
+			c = str[0];
+			i = static_cast<int>(c);
+			f = static_cast<float>(c);
+			d = static_cast<double>(c);
 			break;
-		}
-		case 2: {
-			int tmp = std::atof(str.c_str());
-			ptr = static_cast<void*>(&tmp);
+		case 2:
+			i = std::atof(str.c_str());
+			c = static_cast<char>(i);
+			f = static_cast<float>(i);
+			d = static_cast<double>(i);
 			break;
-		}
-		case 3: {
-			float tmp = std::strtod(str.c_str(), nullptr);
-			ptr = static_cast<void*>(&tmp);
+		case 3:
+			f = std::strtod(str.c_str(), NULL);
+			c = static_cast<char>(f);
+			i = static_cast<int>(f);
+			d = static_cast<double>(f);
 			break;
-		}
-		case 4: {
-			double tmp = std::strtof(str.c_str(), nullptr);
-			ptr = static_cast<void*>(&tmp);
+		case 4:
+			d = std::strtod(str.c_str(), NULL);
+			c = static_cast<char>(d);
+			i = static_cast<int>(d);
+			f = static_cast<double>(d);
 			break;
-		}
 		default:
 			return false;
 	}
-	c = *static_cast<char*>(ptr);
-	i = *static_cast<int*>(ptr);
-	f = *static_cast<float*>(ptr);
-	d = *static_cast<double*>(ptr);
 	printValues(c, i, f, d);
 	return true;
 }
