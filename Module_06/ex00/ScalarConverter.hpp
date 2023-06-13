@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 15:53:36 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/13 13:52:35 by aarrien-         ###   ########.fr       */
+/*   Created: 2023/06/13 13:24:38 by aarrien-          #+#    #+#             */
+/*   Updated: 2023/06/13 13:57:19 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef SCALAR_CONVERTER_HPP
+#define SCALAR_CONVERTER_HPP
 
-int main(int ac, char **av) {
-	char c;
-	int i;
-	float f;
-	double d;
+#include <iostream>
 
-	if (ac != 2 || !ScalarConverter::convert(av[1], c, i, f, d)) {
-		std::cout << "Error\n";
-		return 1;
-	}
-	return 0;
-}
+class ScalarConverter {
+	private:
+		ScalarConverter();
+		ScalarConverter( const ScalarConverter& obj );
+
+		ScalarConverter& operator=( const ScalarConverter& obj );
+	public:
+		~ScalarConverter();
+		static bool convert(std::string str, char& c, int& i, float& f, double& d);
+};
+
+#endif

@@ -6,11 +6,11 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:53:36 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/13 11:07:48 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/13 13:25:36 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "ScalarConverter.hpp"
 
 struct Data {
 	int i;
