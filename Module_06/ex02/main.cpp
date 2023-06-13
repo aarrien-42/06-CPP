@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:53:36 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/13 14:18:51 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:21:58 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,18 @@ void identify(Base *p) {
 void identify(Base &p) {
 	try {
 		A& ARef = dynamic_cast<A&>(p);
-		if (&ARef != nullptr) {
-			std::cout << "A\n";
-		}
+		(void)ARef;
+		std::cout << "A\n";
 	} catch (...) {
 		try {
 			B& BRef = dynamic_cast<B&>(p);
-			if (&BRef != nullptr) {
-				std::cout << "B\n";
-			}
+			(void)BRef;
+			std::cout << "B\n";
 		} catch (...) {
 			try {
 				C& CRef = dynamic_cast<C&>(p);
-				if (&CRef != nullptr) {
-					std::cout << "C\n";
-				}
+				(void)CRef;
+				std::cout << "C\n";
 			} catch (...) {
 				std::cout << "Cannot identify this class!\n";
 			}
