@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:47:32 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/02 19:14:15 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/15 14:41:42 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main() {
 	int len = 10;
 
 	std::cout << "\nTEST 1:\n";
-	::iter(array1, len, incrementTen);
+	::iter(array1, len, incrementTen<int>);
 	for (int i = 0; i < len; i++)
 		std::cout << i << ": " << array1[i] << "\n";
 
