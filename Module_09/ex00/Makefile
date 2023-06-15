@@ -1,4 +1,4 @@
-NAME = bitcoin
+NAME = btc
 FILES = main BitcoinExchange
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))

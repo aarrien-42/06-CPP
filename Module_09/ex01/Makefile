@@ -1,4 +1,4 @@
-NAME = rpn
+NAME = RPN
 FILES = main RPN
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))

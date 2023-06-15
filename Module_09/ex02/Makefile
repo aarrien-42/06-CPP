@@ -1,4 +1,4 @@
-NAME = pmergeme
+NAME = PmergeMe
 FILES = main PmergeMe
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
