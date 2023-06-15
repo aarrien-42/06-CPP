@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:24:41 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/13 13:57:35 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:21:23 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ bool isPseudo(const std::string& str) {
 		!str.compare("-inff") || \
 		!str.compare("+inff") || \
 		!str.compare("nan") || \
+		!str.compare("-inf") || \
+		!str.compare("+inf") || \
 		!str.compare("inf"))
 		return true;
 	return false;
