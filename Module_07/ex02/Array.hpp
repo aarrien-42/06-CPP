@@ -60,7 +60,7 @@ Array<T>::Array( unsigned int n ) : _size(n) {
 template <typename T>
 Array<T>::Array( const Array<T>& obj ) {
 	std::cout << "Array: Copy constructor called\n";
-	*this = obj; 
+	*this = obj;
 }
 
 /*-DESTRUCTOR-*/
@@ -93,7 +93,7 @@ template <typename T>
 std::ostream& operator<<( std::ostream& o, const Array<T>& obj ) {
 	o << "Array: ";
 	for (size_t i = 0; i < obj.size(); i++)
-		o << "  Index " << i << " => " << obj.getElement(i);
+		o << "  Index " << i << " => [" << obj.getElement(i) << "] ";
 	o << "\n";
 	return o;
 }
