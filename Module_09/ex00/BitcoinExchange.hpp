@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:46:43 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/16 15:00:38 by codespace        ###   ########.fr       */
+/*   Updated: 2023/06/17 18:10:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 class BitcoinExchange {
 	private:
-		std::map<std::string, float> _data;
+		std::map<std::string, float> _dataBase;
 		int _minValue, _maxValue;
 	public:
 		BitcoinExchange();
@@ -33,7 +33,12 @@ class BitcoinExchange {
 		int getMaxValue() const;
 		std::map<std::string, float> getData() const;
 
+		void showDataBase() const;
+		void processInput( const char *inputFile ) const;
+		
 		static std::map<std::string, float> saveData( const char *fileName );
 };
+
+bool validDate( const std::string date );
 
 #endif
