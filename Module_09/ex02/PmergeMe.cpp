@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:50:44 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/22 16:37:13 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/22 17:08:59 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void PmergeMe::vAddNum( int num ) {
 }
 
 std::vector<int>::iterator PmergeMe::insertBinarySearch(int num, std::vector<int>::iterator first, std::vector<int>::iterator last) {
-	if (num == *last && last - first == 1)
-		return last;
 	if (num <= *first)
 		return first;
+	if (num >= *last && last - first == 1)
+		return last + 1;
 	if (*first < num && *last > num && last - first == 1)
 		return first + 1;
 	if (*(first+(floor((last-first)/2))) > num)
@@ -62,6 +62,8 @@ std::vector<int>::iterator PmergeMe::insertBinarySearch(int num, std::vector<int
 }
 
 void PmergeMe::sortVector() {
+	if (isSorted(_vSequence))
+		return ;
 	for (std::vector<int>::iterator it = _vSequence.begin(); it < _vSequence.end() - 1; it+=2) {
 		if (*it < *(it+1))
 			std::swap(*it, *(it+1));
@@ -76,7 +78,7 @@ void PmergeMe::sortVector() {
 	}
 	std::vector<int> b;
 	for (std::vector<int>::iterator it = _vSequence.begin(); it < _vSequence.end(); it+=2) {
-		((it+1) < _vSequence.end()) ? b.push_back(*(it+1)) : b.push_back(*it);
+		(it == _vSequence.end() - 1) ? b.push_back(*it) : b.push_back(*(it+1));
 	}
 	if (_vSequence.size() % 2)
 		_vSequence.erase(_vSequence.end() - 1);
