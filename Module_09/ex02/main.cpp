@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:44:02 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/21 16:36:17 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:39:37 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ bool validSequence(int size, char **input) {
 	return true;
 }
 
-//                count|min|max
-// ./PmergeMe `jot -r 10 0 5 | tr '\n' ' '`
+//                 count|min|max
+// ./PmergeMe `jot -r 100 0 5000 | tr '\n' ' '`
 int main( int ac, char **av ) {
 	PmergeMe S;
 
@@ -36,8 +36,9 @@ int main( int ac, char **av ) {
 	for (size_t i = 1; av[i]; i++) {
 		S.vAddNum(std::atof(av[i]));
 	}
-	//std::cout << "BEFORE: " << S << "\n";
+	std::cout << "BEFORE: " << S << "\n";
 	S.sortVector();
-	//std::cout << "AFTER: " << S << "\n";
+	std::cout << "AFTER: " << S << "\n";
+	isSorted(S.getVector()) ? std::cout << "SUCCESS\n" : std::cout << "FAILURE\n";
 	return 0;
 }
