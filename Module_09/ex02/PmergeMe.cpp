@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:50:44 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/22 17:08:59 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:38:48 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ PmergeMe& PmergeMe::operator=( const PmergeMe& obj ) {
 }
 
 std::ostream& operator<<( std::ostream& os, const PmergeMe& obj ) {
-	std::vector<int> sequence = obj.getVector();
-	for (std::vector<int>::const_iterator it = sequence.cbegin(); it < sequence.cend(); it++) {
-		os << *it << " ";
-	}
+	std::cout << "Vector: ";
+	showContainer(obj.getVector());
+	std::cout << "Deque:  ";
+	showContainer(obj.getDeque());
 	return os;
 }
 
@@ -47,18 +47,10 @@ void PmergeMe::vAddNum( int num ) {
 	_vSequence.push_back(num);
 }
 
-std::vector<int>::iterator PmergeMe::insertBinarySearch(int num, std::vector<int>::iterator first, std::vector<int>::iterator last) {
-	if (num <= *first)
-		return first;
-	if (num >= *last && last - first == 1)
-		return last + 1;
-	if (*first < num && *last > num && last - first == 1)
-		return first + 1;
-	if (*(first+(floor((last-first)/2))) > num)
-		first = insertBinarySearch(num, first, first+(floor((last-first)/2)));
-	else
-		first = insertBinarySearch(num, first+(floor((last-first)/2)), last);
-	return first;
+std::deque<int> PmergeMe::getDeque() const { return _dSequence; }
+
+void PmergeMe::dAddNum( int num ) {
+	_dSequence.push_back(num);
 }
 
 void PmergeMe::sortVector() {
@@ -95,3 +87,38 @@ void PmergeMe::sortVector() {
 	}
 }
 
+void PmergeMe::sortDeque() {
+	if (isSorted(_dSequence))
+		return ;
+	for (std::deque<int>::iterator it = _dSequence.begin(); it < _dSequence.end() - 1; it+=2) {
+		if (*it < *(it+1))
+			std::swap(*it, *(it+1));
+	}
+	for (std::deque<int>::iterator it1 = _dSequence.begin(); it1 < _dSequence.end() - 3; it1+=2) {
+		for (std::deque<int>::iterator it2 = it1 + 2; it2 < _dSequence.end() - 1; it2+=2) {
+			if (*it1 > *(it2)) {
+				std::swap(*it1, *it2);
+				std::swap(*(it1+1), *(it2+1));
+			}
+		}
+	}
+
+	std::deque<int> b;
+	for (std::deque<int>::iterator it = _dSequence.begin(); it < _dSequence.end(); it+=2) {
+		(it == _dSequence.end() - 1) ? b.push_back(*it) : b.push_back(*(it+1));
+	}
+	if (_dSequence.size() % 2)
+		_dSequence.erase(_dSequence.end() - 1);
+	for (std::deque<int>::iterator it = _dSequence.begin() + 1; it < _dSequence.end(); it+=2) {
+		_dSequence.erase(it);
+	}
+
+	for (std::deque<int>::iterator it = b.begin(); it < b.end(); it++) {
+		if (it == b.begin())
+			_dSequence.insert(_dSequence.begin(), *it);
+		else {
+			std::deque<int>::iterator in = insertBinarySearch(*it, _dSequence.begin(), _dSequence.end() - 1);
+			_dSequence.insert(in, *it);
+		}
+	}
+}
