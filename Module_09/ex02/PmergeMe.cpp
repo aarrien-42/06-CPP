@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:50:44 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/29 15:12:55 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:30:15 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ void PmergeMe::sort( char **av ) {
 	std::cout << "\n";
 	std::cout << "After:  ";
 	showContainer(_vSequence);
-	std::cout << "Time to process a range of 5 elements with std::vector : " << 1000000.0 * (vEndTime - vStartTime) / CLOCKS_PER_SEC << " us\n";
-	std::cout << "Time to process a range of 5 elements with std::deque  : " << 1000000.0 * (dEndTime - dStartTime) / CLOCKS_PER_SEC << " us\n";
+	std::cout << "Time to process a range of " << _vSequence.size() << " elements with std::vector : " << 1000000.0 * (vEndTime - vStartTime) / CLOCKS_PER_SEC << " us\n";
+	std::cout << "Time to process a range of " << _dSequence.size() << " elements with std::deque  : " << 1000000.0 * (dEndTime - dStartTime) / CLOCKS_PER_SEC << " us\n";
 
 	// sorting check
 	//(isSorted(_vSequence) && isSorted(_dSequence)) ? std::cout << "SUCCESS\n" : std::cout << "FAILURE\n";
