@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:49:53 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/17 21:08:49 by codespace        ###   ########.fr       */
+/*   Updated: 2023/06/29 15:47:20 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,13 @@ void RPN::addNumber( int num ) {
 	_stack.push(num);
 }
 
-void RPN::makeOperation( char optr ) {
+int RPN::makeOperation( char optr ) {
 	int nums[2];
+
+	if (_stack.size() < 2) {
+		std::cerr << "Error\n";
+		return 1;
+	}
 	for (int i = 0; i < 2; i++) {
 		nums[i] = _stack.top();
 		_stack.pop();
@@ -62,11 +67,13 @@ void RPN::makeOperation( char optr ) {
 			_stack.push(nums[1] / nums[0]);
 			break;
 	}
+
+	return 0;
 }
 
 void RPN::showStack() const {
 	std::stack<int> copyStack(_stack);
-	
+
 	while (!copyStack.empty()) {
 		std::cout << " " << copyStack.top() << "\n";
 		copyStack.pop();
