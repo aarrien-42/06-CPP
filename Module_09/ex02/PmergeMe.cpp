@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:50:44 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/27 19:38:48 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:19:20 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ void PmergeMe::dAddNum( int num ) {
 void PmergeMe::sortVector() {
 	if (isSorted(_vSequence))
 		return ;
+	if (_vSequence.size() == 2 && *_vSequence.begin() > *(_vSequence.end() - 1)) {
+		std::swap(*_vSequence.begin(), *(_vSequence.end() - 1));
+		return ;
+	}
 	for (std::vector<int>::iterator it = _vSequence.begin(); it < _vSequence.end() - 1; it+=2) {
 		if (*it < *(it+1))
 			std::swap(*it, *(it+1));
@@ -90,6 +94,10 @@ void PmergeMe::sortVector() {
 void PmergeMe::sortDeque() {
 	if (isSorted(_dSequence))
 		return ;
+	if (_dSequence.size() == 2 && *_dSequence.begin() > *(_dSequence.end() - 1)) {
+		std::swap(*_dSequence.begin(), *(_dSequence.end() - 1));
+		return ;
+	}
 	for (std::deque<int>::iterator it = _dSequence.begin(); it < _dSequence.end() - 1; it+=2) {
 		if (*it < *(it+1))
 			std::swap(*it, *(it+1));
@@ -102,17 +110,17 @@ void PmergeMe::sortDeque() {
 			}
 		}
 	}
-
 	std::deque<int> b;
 	for (std::deque<int>::iterator it = _dSequence.begin(); it < _dSequence.end(); it+=2) {
 		(it == _dSequence.end() - 1) ? b.push_back(*it) : b.push_back(*(it+1));
 	}
 	if (_dSequence.size() % 2)
 		_dSequence.erase(_dSequence.end() - 1);
-	for (std::deque<int>::iterator it = _dSequence.begin() + 1; it < _dSequence.end(); it+=2) {
-		_dSequence.erase(it);
+	for (std::deque<int>::iterator it = _dSequence.begin() + 1; it < _dSequence.end(); it++) {
+		if ((_dSequence.end() - it)%2) {
+			_dSequence.erase(it);
+		}
 	}
-
 	for (std::deque<int>::iterator it = b.begin(); it < b.end(); it++) {
 		if (it == b.begin())
 			_dSequence.insert(_dSequence.begin(), *it);

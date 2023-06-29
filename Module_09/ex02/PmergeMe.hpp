@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:50:57 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/27 19:36:30 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:24:40 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ I insertBinarySearch(int num, I first, I last) {
 
 template <typename C>
 void sortPairs( C& sequence ) {
+	if (sequence.size() == 2 && *sequence.begin() > *(sequence.end() - 1)) {
+		std::swap(*sequence.begin(), *(sequence.end() - 1));
+		return ;
+	}
+
 	for (typename C::iterator it = sequence.begin(); it < sequence.end() - 1; it+=2) {
 		if (*it < *(it+1))
 			std::swap(*it, *(it+1));
@@ -92,15 +97,6 @@ void sortPairs( C& sequence ) {
 }
 
 template <typename C>
-void eraseOdd( C& sequence ) {
-	if (sequence.size() % 2)
-		sequence.erase(sequence.end() - 1);
-	for (typename C::iterator it = sequence.begin() + 1; it <= sequence.end(); ((std::is_same<std::deque<int>, C >::value) ? it+=2 : it++ )) {
-		sequence.erase(it);
-	}
-}
-
-template <typename C>
 C createSecondChain( C& sequence ) {
 	C b;
 	for (typename C::iterator it = sequence.begin(); it < sequence.end(); it+=2) {
@@ -108,6 +104,20 @@ C createSecondChain( C& sequence ) {
 	}
 	eraseOdd(sequence);
 	return b;
+}
+
+template <typename C>
+void eraseOdd( C& sequence ) {
+	if (sequence.size() % 2)
+		sequence.erase(sequence.end() - 1);
+	for (typename C::iterator it = sequence.begin() + 1; it <= sequence.end(); it++) {
+		if (std::is_same<std::deque<int>, C >::value) {
+			if ((sequence.end() - it)%2)
+				sequence.erase(it);
+		} else {
+			sequence.erase(it);
+		}
+	}
 }
 
 #endif
