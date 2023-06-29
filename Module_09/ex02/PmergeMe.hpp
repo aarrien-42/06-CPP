@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:50:57 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/29 14:37:50 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:06:57 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PMERGE_ME_HPP
 
 #include <iostream>
+#include <ctime>
 #include <vector>
 #include <deque>
 
@@ -29,10 +30,7 @@ class PmergeMe {
 		PmergeMe& operator=( const PmergeMe& obj );
 
 		std::vector<int> getVector() const;
-		void vAddNum( int num );
-
 		std::deque<int> getDeque() const;
-		void dAddNum( int num );
 
 		void sort( char **av );
 };

@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:50:44 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/29 14:39:12 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:12:55 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,36 @@ std::ostream& operator<<( std::ostream& os, const PmergeMe& obj ) {
 
 std::vector<int> PmergeMe::getVector() const { return _vSequence; }
 
-void PmergeMe::vAddNum( int num ) {
-	_vSequence.push_back(num);
-}
-
 std::deque<int> PmergeMe::getDeque() const { return _dSequence; }
 
-void PmergeMe::dAddNum( int num ) {
-	_dSequence.push_back(num);
-}
-
 void PmergeMe::sort( char **av ) {
+	clock_t vEndTime, vStartTime, dEndTime, dStartTime;
+
+	// std::vector sort
+	vStartTime = clock();
 	for (size_t i = 1; av[i]; i++) {
-		vAddNum(std::atof(av[i]));
-		dAddNum(std::atof(av[i]));
+		_vSequence.push_back(std::atof(av[i]));
 	}
-	std::cout << "BEFORE:\n" << *this << "\n";
 	mergeInsertSort(_vSequence);
+	vEndTime = clock();
+
+	// std::deque sort
+	dStartTime = clock();
+	for (size_t i = 1; av[i]; i++) {
+		_dSequence.push_back(std::atof(av[i]));
+	}
 	mergeInsertSort(_dSequence);
-	std::cout << "AFTER:\n" << *this << "\n";
-	(isSorted(_vSequence) && isSorted(_dSequence)) ? std::cout << "SUCCESS\n" : std::cout << "FAILURE\n";
+	dEndTime = clock();
+
+	std::cout << "Before: ";
+	for (size_t i = 1; av[i]; i++)
+		std::cout << av[i] << " ";
+	std::cout << "\n";
+	std::cout << "After:  ";
+	showContainer(_vSequence);
+	std::cout << "Time to process a range of 5 elements with std::vector : " << 1000000.0 * (vEndTime - vStartTime) / CLOCKS_PER_SEC << " us\n";
+	std::cout << "Time to process a range of 5 elements with std::deque  : " << 1000000.0 * (dEndTime - dStartTime) / CLOCKS_PER_SEC << " us\n";
+
+	// sorting check
+	//(isSorted(_vSequence) && isSorted(_dSequence)) ? std::cout << "SUCCESS\n" : std::cout << "FAILURE\n";
 }
