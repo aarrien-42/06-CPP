@@ -6,7 +6,7 @@
 /*   By: aarrien- <aarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:50:57 by aarrien-          #+#    #+#             */
-/*   Updated: 2023/06/29 14:24:40 by aarrien-         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:37:50 by aarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,13 @@ class PmergeMe {
 		std::deque<int> getDeque() const;
 		void dAddNum( int num );
 
-		void sortVector();
-		void sortDeque();
-
-
+		void sort( char **av );
 };
 
 std::ostream& operator<<( std::ostream& os, const PmergeMe& obj );
 
 template <typename C>
-bool isSorted(const C& container) {
+bool isSorted( const C& container ) {
 	for (typename C::const_iterator it = container.begin(); it != container.end() - 1; it++) {
 		if (*it > *(it+1))
 			return false;
@@ -52,7 +49,7 @@ bool isSorted(const C& container) {
 }
 
 template <typename C>
-void showContainer(const C& container) {
+void showContainer( const C& container ) {
 	for (typename C::const_iterator it = container.cbegin(); it != container.cend(); it++) {
 		std::cout << *it << " ";
 	}
@@ -75,10 +72,10 @@ I insertBinarySearch(int num, I first, I last) {
 }
 
 template <typename C>
-void sortPairs( C& sequence ) {
+int sortPairs( C& sequence ) {
 	if (sequence.size() == 2 && *sequence.begin() > *(sequence.end() - 1)) {
 		std::swap(*sequence.begin(), *(sequence.end() - 1));
-		return ;
+		return 1;
 	}
 
 	for (typename C::iterator it = sequence.begin(); it < sequence.end() - 1; it+=2) {
@@ -94,6 +91,22 @@ void sortPairs( C& sequence ) {
 			}
 		}
 	}
+
+	return 0;
+}
+
+template <typename C>
+void eraseOdd( C& sequence ) {
+	if (sequence.size() % 2)
+		sequence.erase(sequence.end() - 1);
+	for (typename C::iterator it = sequence.begin() + 1; it <= sequence.end(); it++) {
+		if (std::is_same<std::deque<int>, C >::value) {
+			if ((sequence.end() - it)%2)
+				sequence.erase(it);
+		} else {
+			sequence.erase(it);
+		}
+	}
 }
 
 template <typename C>
@@ -107,15 +120,16 @@ C createSecondChain( C& sequence ) {
 }
 
 template <typename C>
-void eraseOdd( C& sequence ) {
-	if (sequence.size() % 2)
-		sequence.erase(sequence.end() - 1);
-	for (typename C::iterator it = sequence.begin() + 1; it <= sequence.end(); it++) {
-		if (std::is_same<std::deque<int>, C >::value) {
-			if ((sequence.end() - it)%2)
-				sequence.erase(it);
-		} else {
-			sequence.erase(it);
+void mergeInsertSort( C& container ) {
+	if (isSorted(container) || sortPairs(container))
+		return ;
+	C b = createSecondChain(container);
+	for (typename C::iterator it = b.begin(); it < b.end(); it++) {
+		if (it == b.begin())
+			container.insert(container.begin(), *it);
+		else {
+			typename C::iterator in = insertBinarySearch(*it, container.begin(), container.end() - 1);
+			container.insert(in, *it);
 		}
 	}
 }
